@@ -186,6 +186,23 @@
                    </execution>
                </executions>
            </plugin>
+           <!-- 将依赖也包含进jar包, 从而可以使用自己修改过的jdbc驱动包-->
+           <plugin>
+               <artifactId>maven-assembly-plugin</artifactId>
+               <executions>
+                   <execution>
+                       <phase>package</phase>
+                       <goals>
+                           <goal>single</goal>
+                       </goals>
+                   </execution>
+               </executions>
+               <configuration>
+                   <descriptorRefs>
+                       <descriptorRef>jar-with-dependencies</descriptorRef>
+                   </descriptorRefs>
+               </configuration>
+           </plugin>
        </plugins>
    </build>
 
